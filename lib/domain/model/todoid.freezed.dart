@@ -15,12 +15,19 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$TodoId {}
+mixin _$TodoId {
+  int get value => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $TodoIdCopyWith<TodoId> get copyWith => throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $TodoIdCopyWith<$Res> {
   factory $TodoIdCopyWith(TodoId value, $Res Function(TodoId) then) =
       _$TodoIdCopyWithImpl<$Res, TodoId>;
+  @useResult
+  $Res call({int value});
 }
 
 /// @nodoc
@@ -32,12 +39,28 @@ class _$TodoIdCopyWithImpl<$Res, $Val extends TodoId>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_value.copyWith(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_TodoIdCopyWith<$Res> {
+abstract class _$$_TodoIdCopyWith<$Res> implements $TodoIdCopyWith<$Res> {
   factory _$$_TodoIdCopyWith(_$_TodoId value, $Res Function(_$_TodoId) then) =
       __$$_TodoIdCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int value});
 }
 
 /// @nodoc
@@ -46,28 +69,59 @@ class __$$_TodoIdCopyWithImpl<$Res>
     implements _$$_TodoIdCopyWith<$Res> {
   __$$_TodoIdCopyWithImpl(_$_TodoId _value, $Res Function(_$_TodoId) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$_TodoId(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_TodoId implements _TodoId {
-  _$_TodoId();
+  _$_TodoId({required this.value});
+
+  @override
+  final int value;
 
   @override
   String toString() {
-    return 'TodoId()';
+    return 'TodoId(value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_TodoId);
+        (other.runtimeType == runtimeType &&
+            other is _$_TodoId &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TodoIdCopyWith<_$_TodoId> get copyWith =>
+      __$$_TodoIdCopyWithImpl<_$_TodoId>(this, _$identity);
 }
 
 abstract class _TodoId implements TodoId {
-  factory _TodoId() = _$_TodoId;
+  factory _TodoId({required final int value}) = _$_TodoId;
+
+  @override
+  int get value;
+  @override
+  @JsonKey(ignore: true)
+  _$$_TodoIdCopyWith<_$_TodoId> get copyWith =>
+      throw _privateConstructorUsedError;
 }
