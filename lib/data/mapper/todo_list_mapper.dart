@@ -8,7 +8,7 @@ class TodoListMapper {
     return TodoList(values: values);
   }
 
-  // static TodoListEntity transformToMap(final TodoList model) {
-  //   return model.values.map
-  // }
+  static TodoListEntity transformToMap(final TodoList model) {
+    return model.values.map((e) => TodoMapper.transformToMap(e)).toList();
+  }
 }
