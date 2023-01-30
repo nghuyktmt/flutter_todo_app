@@ -8,6 +8,8 @@ part 'todolist.freezed.dart';
 class TodoList with _$TodoList {
   const factory TodoList({required List<Todo> values}) = _TodoList;
 
+  const TodoList._();
+
   operator [](final int index) => values[index];
 
   int get lenght => values.length;

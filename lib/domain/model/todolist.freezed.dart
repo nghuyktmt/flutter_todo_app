@@ -89,8 +89,10 @@ class __$$_TodoListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TodoList implements _TodoList {
-  const _$_TodoList({required final List<Todo> values}) : _values = values;
+class _$_TodoList extends _TodoList {
+  const _$_TodoList({required final List<Todo> values})
+      : _values = values,
+        super._();
 
   final List<Todo> _values;
   @override
@@ -124,8 +126,9 @@ class _$_TodoList implements _TodoList {
       __$$_TodoListCopyWithImpl<_$_TodoList>(this, _$identity);
 }
 
-abstract class _TodoList implements TodoList {
+abstract class _TodoList extends TodoList {
   const factory _TodoList({required final List<Todo> values}) = _$_TodoList;
+  const _TodoList._() : super._();
 
   @override
   List<Todo> get values;
