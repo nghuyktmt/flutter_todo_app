@@ -13,7 +13,10 @@ class Todo with _$Todo {
     required DateTime dueDate,
   }) = _Todo;
 
+  const Todo._();
+
   Todo complete() => copyWith(isCompleted: true);
 
-  Todo inComplete() => copyWith(isCompleted: false);
+  Todo incomplete() => copyWith(isCompleted: false);
 }
+
